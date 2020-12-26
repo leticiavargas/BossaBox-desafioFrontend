@@ -1,0 +1,27 @@
+.searchContainer {
+  display: flex;
+  flex-direction: row;
+  height: 50px;
+  
+}
+
+.searchContainer input {
+  background-size: 21px;
+  background-position-x: 15px;
+  background-position-y: center;
+  background-color: #F5F4F6 ;
+  box-sizing: border-box;
+  border: 1px solid #EBEAED;
+  border-radius: 5px;
+  padding-left: 55px;
+  opacity: 1;
+  height: 50px;
+  width: 400px;
+}
+
+.searchContainer input:focus {
+  background-color: #EBEAED;
+  border: 1px solid #DEDCE1;
+  outline: 0;
+  box-shadow: 0 0 0 0;
+}
