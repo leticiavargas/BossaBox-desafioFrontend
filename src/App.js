@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import {SearchBar, InputText} from './components';
+import {SearchBar, Button} from './components';
 
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
       </header>
       <div className="searchSpace">
         <SearchBar />
-        
+        <Button title="neutral" />
       </div>
     </div>
   );
