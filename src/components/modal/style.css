@@ -1,0 +1,67 @@
+.modal {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  transition: 180ms ease-in-out;
+  pointer-events: none;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  z-index: 999;
+}
+
+.modal.visible {
+  opacity: 1;
+  background-color: var(--color-black-opacity);
+  pointer-events: auto;
+}
+
+.modal .contentContainer {
+  background-color: var(--color-white);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  padding: 50px;
+}
+
+.modal .contentContainer.alert {
+  max-width: 500px;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal .contentContainer.alert h2,
+.modal .contentContainer.alert p {
+  margin: 0;
+  text-align: center;
+  align-self: center;
+}
+
+.modal .contentContainer.alert h2 {
+  margin: 0 0 24px 0;
+  color: var(--color-primary);
+}
+
+.modal .contentContainer.alert p {
+  font-size: var(--font-size-text);
+}
+
+.modal .contentContainer.alert p,
+.modal .contentContainer.alert .actionContainer button {
+  margin: 0;
+}
+
+.modal .contentContainer.alert .actionContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 24px;
+}
+
+.modal .contentContainer.alert .actionContainer .cancelButton {
+  margin-right: 24px;
+}

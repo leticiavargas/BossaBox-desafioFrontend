@@ -18,6 +18,7 @@
   transition: all 0.2s ease-out;
 }
 
+
 .buttonPrimary:hover{
   background-color: #2F55CC ;
 }
@@ -55,3 +56,22 @@
   background-color: #FCAEAC;
   color: #FEEFEE;
 }
+
+.buttonPrimary.quartiary{
+  background-color: transparent !important;
+  color: #365DF0;
+  min-width: auto!important;
+}
+
+.buttonPrimary.quartiarySucess{
+  background-color: transparent !important;
+  color: #12DB89;
+  min-width: auto!important;
+}
+
+.buttonPrimary.quartiaryDanger{
+  color: #F95E5A;
+  background-color: transparent !important;
+  min-width: auto!important;
+}
+

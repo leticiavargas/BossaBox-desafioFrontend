@@ -7,9 +7,10 @@ const Button = React.memo(({ title, disabled, className, ...otherProps }) => {
     `buttonPrimary ${className ? className : ''}`
   ), [className]);
 
+
   return (
-    <button className={buttonClassName} disabled={disabled} { ...otherProps }>
-      {title}
+    <button className={buttonClassName} disabled={disabled}  { ...otherProps }>
+    {title}
     </button>
   );
 });

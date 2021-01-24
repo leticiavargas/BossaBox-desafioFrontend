@@ -16,9 +16,16 @@
   border: forestgreen 1px solid;
 }
 
-.container .searchSpace {
+.container .searchRow {
   display: flex;
   flex-direction: row;
   margin-top: 30px;
+  justify-content: space-between;
   border: 1px solid firebrick;
+}
+
+.container .searchRow .searchSpace {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
