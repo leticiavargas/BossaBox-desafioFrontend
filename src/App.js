@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import api from './services/api';
 import './App.css';
-import {SearchBar, Button, ToolCard, AlertModal} from './components';
+import {SearchBar, Button, ToolCard, AlertModal, InputText, TextAreaInput} from './components';
 
 
 
@@ -57,7 +57,10 @@ const App = () => {
         confirmTitle="Add Tool"
         onConfirm={handleAddToolConfirm}
       >
-        <div>Teste</div>
+        <InputText title="Tool Name" />
+        <InputText title="Tool Link" />
+        <TextAreaInput title="Tool Description" />
+        <InputText title="Tags" />
       </AlertModal>
     </div>
   );

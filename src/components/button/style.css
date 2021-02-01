@@ -75,3 +75,6 @@
   min-width: auto!important;
 }
 
+.largeButton{
+  width: 100%!important; 
+}

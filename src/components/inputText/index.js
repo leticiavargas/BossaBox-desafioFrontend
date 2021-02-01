@@ -11,6 +11,17 @@ const InputText = ({title, required, error, placeholder}) => {
       <input placeholder={placeholder} />
     </div>
   );
-}
+};
 
-export {InputText}
+const TextAreaInput = ({title, required, numRows = 3, ...otherProps }) => {
+  return (
+    <div className="inputContainer">
+      {title && (  
+        <div className="inputTitle">{title}</div>
+      )}
+      <textarea  rows={numRows}  { ...otherProps }/>
+    </div>
+  );
+};
+
+export {InputText, TextAreaInput}

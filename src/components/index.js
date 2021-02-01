@@ -1,6 +1,6 @@
 export {SearchBar} from './searchBar';
 
-export {InputText} from './inputText';
+export {InputText, TextAreaInput} from './inputText';
 
 export {Button} from './button';
 

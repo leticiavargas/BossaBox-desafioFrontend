@@ -1,10 +1,11 @@
 .inputContainer {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 .inputContainer .inputTitle {
-  margin-bottom: 20px;
+  margin: 15px 0 10px;
 }
 
 .inputContainer .inputTitle span {
@@ -36,4 +37,24 @@
   opacity: 1;
   color: #F95E5A;
 
+}
+
+.inputContainer textarea {
+  background-color: #F5F4F6 ;
+  box-sizing: border-box;
+  border: 1px solid #EBEAED;
+  border-radius: 5px;
+  padding-left: 20px;
+  opacity: 1;
+  width: 100%;
+  resize: none;
+  width: stretch;
+  padding: 4px 8px;
+}
+
+.inputContainer textarea:focus {
+  background-color: #EBEAED;
+  border: 1px solid #DEDCE1;
+  outline: 0;
+  box-shadow: 0 0 0 0;
 }

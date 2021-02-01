@@ -23,8 +23,8 @@ const AlertModal = ({ contentClassName ='', title, text, cancelTitle, onCancel, 
       { children }
 
       <div className="actionContainer">
-        { !!onCancel && <Button className="reverse cancelButton" title={cancelTitle} onClick={onCancel} /> }
-        { !!onConfirm && <Button title={confirmTitle} disabled={confirmDisabled} onClick={onConfirm} /> }
+        { !!onCancel && <Button className="danger" title={cancelTitle} onClick={onCancel} /> }
+        { !!onConfirm && <Button className="largeButton" title={confirmTitle} disabled={confirmDisabled} onClick={onConfirm} /> }
       </div>
     </Modal>
   );
