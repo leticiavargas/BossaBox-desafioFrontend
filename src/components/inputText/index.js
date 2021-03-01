@@ -3,12 +3,12 @@ import React from 'react';
 import './style.css';
 
 
-const InputText = ({title, required, error, placeholder}) => {
+const InputText = ({title, required, error, placeholder, ...otherProps }) => {
 
   return(
     <div className="inputContainer">
       <div className="inputTitle">{title} {!!required && (<span>*</span>)} </div>
-      <input placeholder={placeholder} />
+      <input placeholder={placeholder} { ...otherProps} />
     </div>
   );
 };

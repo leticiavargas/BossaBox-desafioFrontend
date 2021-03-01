@@ -6,4 +6,4 @@ export {Button} from './button';
 
 export {ToolCard} from './toolCard';
 
-export {Modal, AlertModal} from './modal';
+export {Modal, ModalPrimary, ModalSmall} from './modal';

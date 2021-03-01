@@ -14,9 +14,9 @@ const Modal = ({ className = '', contentClassName = '', visible = false, childre
   );
 }
 
-const AlertModal = ({ contentClassName ='', title, text, cancelTitle, onCancel, confirmTitle, confirmDisabled, onConfirm, children, ...otherProps }) => {
+const ModalSmall = ({ contentClassName ='', title, text, cancelTitle, onCancel, confirmTitle, confirmDisabled, onConfirm, children, ...otherProps }) => {
   return(
-    <Modal contentClassName={`alert ${contentClassName}`}  { ...otherProps }>
+    <Modal contentClassName={`small ${contentClassName}`}  { ...otherProps }>
       {!!(title && title.length) && <h2>{title}</h2>}
       {!!(text && text.length) && <p>{text}</p>}
 
@@ -30,7 +30,26 @@ const AlertModal = ({ contentClassName ='', title, text, cancelTitle, onCancel, 
   );
 }
 
+
+const ModalPrimary = ({ contentClassName ='', title, text, cancelTitle, onCancel, confirmTitle, confirmDisabled, onConfirm, children, ...otherProps }) => {
+  return(
+    <Modal contentClassName={`primary ${contentClassName}`}  { ...otherProps }>
+      <div className="rectangle"> </div>
+      {!!(title && title.length) && <h2>{title}</h2>}
+      {!!(text && text.length) && <p>{text}</p>}
+
+      { children }
+
+      <div className="actionContainer primary">
+        { !!onConfirm && <Button className="largeButton" title={confirmTitle} disabled={confirmDisabled} onClick={onConfirm} /> }
+        { !!onCancel && <Button className="largeButton quartiary" title={cancelTitle} onClick={onCancel} /> }
+      </div>
+    </Modal>
+  );
+}
+
 export {
   Modal,
-  AlertModal
+  ModalPrimary,
+  ModalSmall
 };
