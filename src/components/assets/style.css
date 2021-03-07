@@ -1,0 +1,18 @@
+#close{
+  display: block;
+  width: 10px;
+  height: 10px;
+  stroke: #C7C4CD;
+  stroke-width: 10px;
+  cursor: pointer;
+}
+
+#search{
+  display: block;
+  width: 25px;
+  height: 25px;
+  stroke: #B1ADB9;
+  stroke-width: 5px;
+  fill: none;
+  stroke-miterlimit:10
+}

@@ -3,7 +3,6 @@
   flex-direction: column;
   align-items: right;
   height: 100%;
-  border: fuchsia 1px solid;
   padding: 60px 10%;
 }
 
@@ -13,7 +12,6 @@
   flex-direction: column;
   height: 100px;
   justify-content: space-between;
-  border: forestgreen 1px solid;
 }
 
 .container .searchRow {
@@ -21,7 +19,7 @@
   flex-direction: row;
   margin-top: 30px;
   justify-content: space-between;
-  border: 1px solid firebrick;
+
 }
 
 .container .searchRow .searchSpace {

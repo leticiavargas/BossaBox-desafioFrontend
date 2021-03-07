@@ -13,15 +13,12 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  border: darkblue 1px solid;
 }
 
 .toolCardContainer .toolDescription {
-  border: springgreen 1px solid;
   margin: 10px 0;
 }
 
 .toolCardContainer .toolTags {
-  border: tomato 1px solid;
   font-weight: bold;
 }

@@ -1,7 +1,16 @@
 import React, {useEffect, useState, useCallback} from 'react';
 import api from './services/api';
 import './App.css';
-import {SearchBar, Button, ToolCard, AlertModal, Modal, ModalSmall, InputText, TextAreaInput, ModalPrimary} from './components';
+import { 
+  SearchBar, 
+  Button, 
+  ToolCard, 
+  ModalSmall, 
+  ModalPrimary, 
+  InputText, 
+  TextAreaInput, 
+  TagsInput 
+} from './components';
 
 
 
@@ -51,6 +60,7 @@ const App = () => {
       setToolTitle('');
       setToolLink('');
       setToolDescription('');
+      setToolTags([]);
       getTools();
       console.log(resp.data);
     } catch (err) {
@@ -99,6 +109,7 @@ const App = () => {
             title={tool.title} 
             description={tool.description} 
             link={tool.link} 
+            tags={tool.tags}
             onClick={() => handleRemove(tool.id, tool.title)} 
           />
         )
@@ -110,12 +121,13 @@ const App = () => {
         title="Add new Tool"
         confirmTitle="Add Tool"
         onConfirm={handleAddToolConfirm}
+        onClose ={()=> setAddToolModalVisible(false)}
       > 
         <InputText title="Tool Name" onChange={handleTitleChange} value={toolTitle} />
         <InputText title="Tool Link" onChange={handleLinkChange} value={toolLink}/>
         <TextAreaInput title="Tool Description" onChange={handleDescriptionChange} value={toolDescription}/>
-        <InputText title="Tags" onChange={handleTagsChange}/>
-        
+        <div className="inputTitle">Tags </div>
+        <TagsInput selectedTags={setToolTags}/>
       </ModalPrimary>
       
       <ModalSmall
@@ -125,6 +137,7 @@ const App = () => {
         onCancel={handleRemove}
         confirmTitle="Yes, remove"
         onConfirm={handleRemoveConfirm}
+        onClose={()=>setRemoveModalVisible(false)}
         text={`Are you sure you wnat to remove ${toolTitle}?`}
       >
       </ModalSmall>

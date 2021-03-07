@@ -29,6 +29,14 @@
   box-sizing: border-box;
 }
 
+.modal .contentContainer span {
+  align-self: flex-end;
+}
+.modal .contentContainer #close {
+  width: 12px;
+  height: 12px;
+}
+
 .modal .contentContainer.primary {
   width: 40%;
   align-items: center;

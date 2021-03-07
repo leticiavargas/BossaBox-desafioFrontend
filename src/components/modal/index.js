@@ -1,13 +1,15 @@
 import React from 'react';
-import {Button} from '../button';
+import {Button, CloseIcon} from '../index';
 
 import './style.css';
 
 
-const Modal = ({ className = '', contentClassName = '', visible = false, children, ...otherProps }) => {
+const Modal = ({ className = '', contentClassName = '', visible = false, children, onClose, ...otherProps }) => {
   return(
     <div className={`modal ${className} ${visible ? 'visible' : ''}`} { ...otherProps }>
+     
       <div className={`contentContainer ${contentClassName}`}>
+      <CloseIcon onClick={onClose} />
         { children }
       </div>
     </div>
