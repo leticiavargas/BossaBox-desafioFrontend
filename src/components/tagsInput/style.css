@@ -1,3 +1,13 @@
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.inputContainer .inputTitle {
+  margin: 15px 0 10px;
+}
+
 .tags-input {
   display: flex;
   align-items: flex-start;
@@ -29,6 +39,7 @@
 }
 .tags-input input:focus {
   background-color: #EBEAED;
+  border: none;
   outline: 0;
 }
 
@@ -56,6 +67,9 @@
 }
 .tag .tag-title {
   margin-top: 3px;
+}
+.tags-input.tags.tag.tag-close-icon {
+  align-self: center;
 }
 .tag .tag-close-icon #close{
   width: 10px;

@@ -3,10 +3,10 @@ import {Button} from '../index';
 
 import './style.css';
 
-const ToolCard = ({title, key, description, link, onClick, tags='#tag'}) => {
+const ToolCard = ({title, description, link, onClick, tags='#tag'}) => {
 
   return(
-    <div key={key} className="toolCardContainer">
+    <div className="toolCardContainer">
       <div className="titleRow">
         <a href={link}>{title}</a>
         <Button title="remove" className="quartiaryDanger"  onClick={onClick} />
@@ -15,7 +15,7 @@ const ToolCard = ({title, key, description, link, onClick, tags='#tag'}) => {
       <div className="toolTags">
       { 
         tags.map((tag)=> 
-         <span>#{tag} </span>
+         <span key={tag}>#{tag} </span>
         )
       }
       </div>

@@ -27,3 +27,13 @@
   flex-direction: row;
   align-items: center;
 }
+
+.container footer {
+  height: 100px;
+  font-size: 10px;
+  width: 100%;
+}
+
+.container footer p {
+  text-align: center;
+}

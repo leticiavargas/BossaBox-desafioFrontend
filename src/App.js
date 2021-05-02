@@ -1,6 +1,7 @@
-import React, {useEffect, useState, useCallback} from 'react';
+import React, {useEffect, useState, useCallback, useMemo} from 'react';
 import api from './services/api';
 import './App.css';
+import {ContainsSearch} from './utils/containsSearch';
 import { 
   SearchBar, 
   Button, 
@@ -12,8 +13,6 @@ import {
   TagsInput 
 } from './components';
 
-
-
 const App = () => {
 
   const [tools, setTools] = useState([]);
@@ -24,11 +23,14 @@ const App = () => {
   const [toolLink, setToolLink] = useState('');
   const [toolDescription, setToolDescription] = useState('');
   const [toolTags, setToolTags] = useState([]);
+  const [search, setSearch] = useState('');
+  const [searchTags, setSearchTags] = useState(false);
 
   const handleTitleChange = useCallback((e) => setToolTitle(e.target.value), []);
   const handleLinkChange = useCallback((e) => setToolLink(e.target.value), []);
   const handleDescriptionChange = useCallback((e) => setToolDescription(e.target.value), []);
-  const handleTagsChange = useCallback((e) => setToolTags(e.target.value), []);
+  const handleTagsChange = useCallback((tags) => setToolTags(tags), []);
+  const handleSearchTags = useCallback((e) => setSearchTags(e.target.checked), []);
 
   const getTools = async () => {
     try {
@@ -42,6 +44,21 @@ const App = () => {
   useEffect(() => {
     getTools();
   }, []);
+
+  const searchedList = useMemo(() => {
+    console.log("avalible", tools);
+    console.log("searchTag", searchTags);
+    console.log("search", search);
+    const result = !search.trim().length ? tools : tools.filter(tool => {
+      if(searchTags)
+        return tool.tags.some((tag)=> ContainsSearch(tag, search));
+      else
+        return ContainsSearch(tool.title, search);
+    });
+    console.log("searchedList",result);
+    return result;
+  }, [search, searchTags, tools]);
+  
 
   const handleAddTool = () => {
     setAddToolModalVisible(true);
@@ -97,13 +114,13 @@ const App = () => {
       </header>
       <div className="searchRow">
         <div className="searchSpace">
-          <SearchBar />
-          <input type="checkbox" /><span>search in tags only</span>
+          <SearchBar search ={search} onSearchChange={(e) => setSearch(e.target.value)} />
+          <input id="searchTags" type="checkbox" checked={searchTags} onChange={handleSearchTags} /><span>search in tags only</span>
         </div>
-        <Button title="+ add" onClick={handleAddTool} />
+        <Button title="+ add" onClick={handleAddTool} icon="add" />
       </div>
       { 
-        tools.map((tool)=>
+        searchedList.map((tool)=>
           <ToolCard 
             key={tool.id} 
             title={tool.title} 
@@ -114,7 +131,9 @@ const App = () => {
           />
         )
       }
-      
+      <footer>
+        <p>Desenvolvido por Letícia Vargas - 2021</p>
+      </footer>
 
       <ModalPrimary
         visible={addToolModalVisible}
@@ -126,8 +145,7 @@ const App = () => {
         <InputText title="Tool Name" onChange={handleTitleChange} value={toolTitle} />
         <InputText title="Tool Link" onChange={handleLinkChange} value={toolLink}/>
         <TextAreaInput title="Tool Description" onChange={handleDescriptionChange} value={toolDescription}/>
-        <div className="inputTitle">Tags </div>
-        <TagsInput selectedTags={setToolTags}/>
+        <TagsInput title="Tags" onChange={handleTagsChange} value={toolTags} />
       </ModalPrimary>
       
       <ModalSmall
@@ -138,7 +156,7 @@ const App = () => {
         confirmTitle="Yes, remove"
         onConfirm={handleRemoveConfirm}
         onClose={()=>setRemoveModalVisible(false)}
-        text={`Are you sure you wnat to remove ${toolTitle}?`}
+        text={`Are you sure you want to remove ${toolTitle}?`}
       >
       </ModalSmall>
 

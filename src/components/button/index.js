@@ -2,7 +2,7 @@ import React, {useMemo} from 'react';
 
 import './style.css';
 
-const Button = React.memo(({ title, disabled, className, ...otherProps }) => {
+const Button = React.memo(({ title, disabled, className,  ...otherProps }) => {
   const buttonClassName = useMemo(() => (
     `buttonPrimary ${className ? className : ''}`
   ), [className]);

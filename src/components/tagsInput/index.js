@@ -2,39 +2,48 @@ import React, {useState} from 'react';
 import {CloseIcon} from '../index';
 import './style.css';
 
-const TagsInput = ({selectedTags}) => {
-  
-  const [tags, setTags] = useState([]);
+const TagsInput = ({ title, value = [], onChange }) => {
+  const [tagText, setTagText] = useState('');
 
-  const addTags = event => {
-    if (event.key === "Enter" && event.target.value !== "") {
-      setTags([...tags, event.target.value]);
-      selectedTags([...tags, event.target.value]);
-      event.target.value = "";
+  const handleTagTextChange = (e) => setTagText(e.target.value);
+
+  const handleTagsChange = (tags) => {
+    if (onChange) {
+      onChange(tags);
     }
   };
-  const removeTags = index => {
-    setTags([...tags.filter(tag => tags.indexOf(tag) !== index)]);
+
+  const addTags = e => {
+    if (e.key === "Enter" && e.target.value?.trim().length) {
+      setTagText('');
+      handleTagsChange([ ...value, e.target.value ]);
+    }
   };
-  
+
+  const removeTags = index => {
+    handleTagsChange(value.filter(tag => value.indexOf(tag) !== index));
+  };
+
   return (
-    <div className="tags-input">
-      <ul id="tags">
-        {tags.map((tag, index) => (
-          <li key={index} className="tag">
-            <span className='tag-title'>{tag}</span>
-            <span className='tag-close-icon'
-              onClick={() => removeTags(index)}
-            >
-             <CloseIcon />
-            </span>
-          </li>
-        ))}
-      </ul>
-      <input
-        type="text"
-        onKeyUp={event => addTags(event)}
-      />
+    <div className="inputContainer">
+      {title && (  
+        <div className="inputTitle">{title}</div>
+      )}
+      <div className="tags-input">
+        <ul id="tags"> 
+          {value.map((tag, index) => (
+            <li key={index} className="tag">
+              <p className='tag-title'>{tag}</p>
+              <p className='tag-close-icon'
+                onClick={() => removeTags(index)}
+              >
+              <CloseIcon />
+              </p>
+            </li>
+          ))}
+        </ul>
+        <input type="text" value={tagText} onChange={handleTagTextChange} onKeyUp={addTags} />
+      </div>
     </div>
   );
 };
