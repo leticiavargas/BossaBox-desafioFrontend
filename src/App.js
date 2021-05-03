@@ -37,7 +37,7 @@ const App = () => {
       const {data} = await api.get('tools');
       setTools(data);
     } catch (error) {
-      alert("Ocorreu um erro ao buscar os items");
+      alert("Sorry, We have a problem getting tool's List");
     }
   }
    
@@ -46,16 +46,12 @@ const App = () => {
   }, []);
 
   const searchedList = useMemo(() => {
-    console.log("avalible", tools);
-    console.log("searchTag", searchTags);
-    console.log("search", search);
     const result = !search.trim().length ? tools : tools.filter(tool => {
       if(searchTags)
         return tool.tags.some((tag)=> ContainsSearch(tag, search));
       else
         return ContainsSearch(tool.title, search);
     });
-    console.log("searchedList",result);
     return result;
   }, [search, searchTags, tools]);
   
@@ -142,7 +138,7 @@ const App = () => {
         onConfirm={handleAddToolConfirm}
         onClose ={()=> setAddToolModalVisible(false)}
       > 
-        <InputText title="Tool Name" onChange={handleTitleChange} value={toolTitle} />
+        <InputText title="Tool Name" placeholder='teste' onChange={handleTitleChange} value={toolTitle} />
         <InputText title="Tool Link" onChange={handleLinkChange} value={toolLink}/>
         <TextAreaInput title="Tool Description" onChange={handleDescriptionChange} value={toolDescription}/>
         <TagsInput title="Tags" onChange={handleTagsChange} value={toolTags} />

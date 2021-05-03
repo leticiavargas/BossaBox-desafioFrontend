@@ -1,13 +1,10 @@
 import React from 'react';
-
 import './style.css';
 
-
 const InputText = ({title, required, error, placeholder, ...otherProps }) => {
-
   return(
-    <div className="inputContainer">
-      <div className="inputTitle">{title} {!!required && (<span>*</span>)} </div>
+    <div data-testid='inputText' className="inputContainer">
+      <label className="inputTitle">{title}{!!required && (<span>*</span>)}</label>
       <input placeholder={placeholder} { ...otherProps} />
     </div>
   );
@@ -15,11 +12,11 @@ const InputText = ({title, required, error, placeholder, ...otherProps }) => {
 
 const TextAreaInput = ({title, required, numRows = 3, ...otherProps }) => {
   return (
-    <div className="inputContainer">
+    <div data-testid='textAreaInput' className="inputContainer">
       {title && (  
-        <div className="inputTitle">{title}</div>
+        <label className="inputTitle">{title}{!!required && (<span>*</span>)}</label>
       )}
-      <textarea  rows={numRows}  { ...otherProps }/>
+      <textarea data-testid='textArea'  rows={numRows}  { ...otherProps }/>
     </div>
   );
 };
