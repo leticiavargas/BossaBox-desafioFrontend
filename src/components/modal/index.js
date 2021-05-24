@@ -1,5 +1,5 @@
 import React from 'react';
-import {Button, CloseIcon} from '../index';
+import {Button} from '../index';
 
 import './style.css';
 
@@ -9,7 +9,9 @@ const Modal = ({ className = '', contentClassName = '', visible = false, childre
     <div className={`modal ${className} ${visible ? 'visible' : ''}`} { ...otherProps }>
      
       <div className={`contentContainer ${contentClassName}`}>
-      <CloseIcon onClick={onClose} />
+      <span className="closeElement" onClick={onClose}>
+        <i className="fa fa-closeicon" />
+      </span>
         { children }
       </div>
     </div>

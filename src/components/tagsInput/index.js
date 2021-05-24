@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import {CloseIcon} from '../index';
 import './style.css';
 
 const TagsInput = ({ title, value = [], onChange }) => {
@@ -37,7 +36,7 @@ const TagsInput = ({ title, value = [], onChange }) => {
               <p className='tag-close-icon'
                 onClick={() => removeTags(index)}
               >
-              <CloseIcon />
+                <i className="fa fa-closeicon fa-xs" />
               </p>
             </li>
           ))}

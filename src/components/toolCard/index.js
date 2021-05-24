@@ -9,7 +9,7 @@ const ToolCard = ({title, description, link, onClick, tags='#tag'}) => {
     <div className="toolCardContainer">
       <div className="titleRow">
         <a href={link}>{title}</a>
-        <Button title="remove" className="quartiaryDanger"  onClick={onClick} />
+        <Button title="remove" className="quartiaryDanger" icon="fa-closeicon fa-xs"  onClick={onClick} />
       </div>
       <div className="toolDescription">{description}</div>
       <div className="toolTags">

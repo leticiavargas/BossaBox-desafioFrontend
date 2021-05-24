@@ -36,6 +36,7 @@
   opacity: 1;
   height: 46px;
   width: 100%;
+  padding: 0 !important;
 }
 .tags-input input:focus {
   background-color: #EBEAED;
@@ -56,26 +57,23 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #170C3A;
   padding: 0 8px;
-  font-size: 14px;
   list-style: none;
   border-radius: 6px;
-  margin: 0 8px 8px 0;
+  margin: 0 8px 0 0 ;
   background: #FFFFFF;
   border: 1px solid #EBEAED;
 }
 .tag .tag-title {
   margin-top: 3px;
+  font-size: 14px !important;
+  color: #170C3A !important;
 }
 .tags-input.tags.tag.tag-close-icon {
   align-self: center;
 }
-.tag .tag-close-icon #close{
-  width: 10px;
-  height: 10px;
-  margin-left: 8px;
-  stroke-width: 10px;
+.tag .tag-close-icon {
+  margin-left: 8px !important;
 }
 
 

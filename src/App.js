@@ -10,7 +10,8 @@ import {
   ModalPrimary, 
   InputText, 
   TextAreaInput, 
-  TagsInput 
+  TagsInput ,
+  PlusIcon
 } from './components';
 
 const App = () => {
@@ -105,15 +106,15 @@ const App = () => {
   return (
     <div className="container">
       <header>
-        <span className="header1">VUTTR</span>
-        <span className="header4">Very Useful Tools to Remember</span>
+        <label className="header1">VUTTR</label>
+        <label className="header4">Very Useful Tools to Remember</label>
       </header>
       <div className="searchRow">
         <div className="searchSpace">
           <SearchBar search ={search} onSearchChange={(e) => setSearch(e.target.value)} />
-          <input id="searchTags" type="checkbox" checked={searchTags} onChange={handleSearchTags} /><span>search in tags only</span>
+          <input id="searchTags" type="checkbox" checked={searchTags} onChange={handleSearchTags} /><label>search in tags only</label>
         </div>
-        <Button title="+ add" onClick={handleAddTool} icon="add" />
+        <Button title="add" onClick={handleAddTool} icon="fa-plusicon" />
       </div>
       { 
         searchedList.map((tool)=>

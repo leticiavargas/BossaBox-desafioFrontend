@@ -32,9 +32,8 @@
 .modal .contentContainer span {
   align-self: flex-end;
 }
-.modal .contentContainer #close {
-  width: 12px;
-  height: 12px;
+.modal .contentContainer .closeElement{
+  cursor: pointer;
 }
 
 .modal .contentContainer.primary {
