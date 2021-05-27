@@ -3,8 +3,6 @@
 </h1>
 <p align="center"> 👩‍💻 Repositório com o teste da BossaBox para Frontend  👩‍💻 </p>
 
-<img src="https://img.shields.io/badge/web-react-blue">
-<img src="https://img.shields.io/badge/node-12.17.0-green">
 
 <h3 align="center"> 
 	🚧 Status do projeto🚧
