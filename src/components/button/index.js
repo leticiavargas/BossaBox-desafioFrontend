@@ -11,7 +11,7 @@ const Button = React.memo(({ title, disabled, className, icon, ...otherProps }) 
 
   return (
     <button className={buttonClassName} disabled={disabled}  { ...otherProps }>
-      { icon && <i className={`fa ${icon}`} />}{title}
+      { icon && <i className={`fa ${icon}`} />} {title}
     </button>
   );
 });
